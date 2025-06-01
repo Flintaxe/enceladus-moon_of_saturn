@@ -3,5 +3,7 @@
 
   "item.enceladus_moon_of_saturn.ice_cube": "Ice Cube",
   "item.enceladus_moon_of_saturn.blue_ice_cube": "Blue Ice Cube",
-  "item.enceladus_moon_of_saturn.dark_blue_ice_cube": "Dark Blue Ice Cube"
+  "item.enceladus_moon_of_saturn.dark_blue_ice_cube": "Dark Blue Ice Cube",
+
+  "block.enceladus_moon_of_saturn.dark_blue_ice": "Dark Blue Ice"
 }

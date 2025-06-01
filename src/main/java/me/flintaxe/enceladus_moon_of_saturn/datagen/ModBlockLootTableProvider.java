@@ -27,8 +27,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        add(Blocks.PACKED_ICE, block -> createMultipleOreDrops(Blocks.PACKED_ICE, ModItems.ICE_CUBE.get(), 1, 5));
-        add(Blocks.BLUE_ICE, block -> createMultipleOreDrops(Blocks.BLUE_ICE, ModItems.BLUE_ICE_CUBE.get(), 1, 4));
         add(ModBlocks.DARK_BLUE_ICE.get(), block -> createMultipleOreDrops(ModBlocks.DARK_BLUE_ICE.get(), ModItems.DARK_BLUE_ICE_CUBE.get(), 1, 4));
     }
 

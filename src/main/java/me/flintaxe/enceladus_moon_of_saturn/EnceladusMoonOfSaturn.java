@@ -1,7 +1,9 @@
 package me.flintaxe.enceladus_moon_of_saturn;
 
+import me.flintaxe.enceladus_moon_of_saturn.block.ModBlocks;
 import me.flintaxe.enceladus_moon_of_saturn.item.ModCreativeModeTabs;
 import me.flintaxe.enceladus_moon_of_saturn.item.ModItems;
+import me.flintaxe.enceladus_moon_of_saturn.loot.ModLootModifier;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -22,7 +24,6 @@ public class EnceladusMoonOfSaturn
 {
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "enceladus_moon_of_saturn";
-    // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
@@ -34,6 +35,10 @@ public class EnceladusMoonOfSaturn
 
         ModItems.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
+
+        ModBlocks.register(modEventBus);
+
+        ModLootModifier.register(modEventBus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

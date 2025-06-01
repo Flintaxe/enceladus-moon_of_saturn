@@ -32,6 +32,8 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.ICE_CUBE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.BLUE_ICE_CUBE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.DARK_BLUE_ICE_CUBE.get(), ModelTemplates.FLAT_ITEM);
+
+        blockModels.createTrivialCube(ModBlocks.DARK_BLUE_ICE.get());
     }
 
     @Override

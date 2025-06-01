@@ -1,6 +1,7 @@
 package me.flintaxe.enceladus_moon_of_saturn.datagen;
 
 import me.flintaxe.enceladus_moon_of_saturn.EnceladusMoonOfSaturn;
+import me.flintaxe.enceladus_moon_of_saturn.block.ModBlocks;
 import me.flintaxe.enceladus_moon_of_saturn.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -52,6 +53,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("CCC")
                 .define('C', ModItems.BLUE_ICE_CUBE.get())
                 .unlockedBy("has_blue_ice_cube", has(ModItems.BLUE_ICE_CUBE)).save(output);
+
+        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_BLUE_ICE.get())
+                .pattern("CCC")
+                .pattern("CCC")
+                .pattern("CCC")
+                .define('C', ModItems.DARK_BLUE_ICE_CUBE.get())
+                .unlockedBy("has_dark_blue_ice_cube", has(ModItems.DARK_BLUE_ICE_CUBE)).save(output);
 
     }
     protected void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
