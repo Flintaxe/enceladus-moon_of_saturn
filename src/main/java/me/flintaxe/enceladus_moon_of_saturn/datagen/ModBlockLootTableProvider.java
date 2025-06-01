@@ -1,6 +1,7 @@
 package me.flintaxe.enceladus_moon_of_saturn.datagen;
 
 import me.flintaxe.enceladus_moon_of_saturn.block.ModBlocks;
+import me.flintaxe.enceladus_moon_of_saturn.item.ModItems;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -10,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
@@ -25,7 +27,17 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
+        add(Blocks.PACKED_ICE, block -> createMultipleOreDrops(Blocks.PACKED_ICE, ModItems.ICE_CUBE.get(), 1, 5));
+        add(Blocks.BLUE_ICE, block -> createMultipleOreDrops(Blocks.BLUE_ICE, ModItems.BLUE_ICE_CUBE.get(), 1, 4));
+        add(ModBlocks.DARK_BLUE_ICE.get(), block -> createMultipleOreDrops(ModBlocks.DARK_BLUE_ICE.get(), ModItems.DARK_BLUE_ICE_CUBE.get(), 1, 4));
+    }
 
+    protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {
+        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        return this.createSilkTouchDispatchTable(pBlock,
+                this.applyExplosionDecay(pBlock, LootItem.lootTableItem(item)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(minDrops, maxDrops)))
+                        .apply(ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))));
     }
 
     @Override

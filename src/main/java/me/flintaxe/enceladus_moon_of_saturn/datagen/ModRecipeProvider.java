@@ -1,12 +1,14 @@
 package me.flintaxe.enceladus_moon_of_saturn.datagen;
 
 import me.flintaxe.enceladus_moon_of_saturn.EnceladusMoonOfSaturn;
+import me.flintaxe.enceladus_moon_of_saturn.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 
@@ -37,6 +39,19 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes() {
+        shaped(RecipeCategory.BUILDING_BLOCKS, Items.PACKED_ICE)
+                .pattern("CCC")
+                .pattern("CCC")
+                .pattern("CCC")
+                .define('C', ModItems.ICE_CUBE.get())
+                .unlockedBy("has_ice_cube", has(ModItems.ICE_CUBE)).save(output);
+
+        shaped(RecipeCategory.BUILDING_BLOCKS, Items.BLUE_ICE)
+                .pattern("CCC")
+                .pattern("CCC")
+                .pattern("CCC")
+                .define('C', ModItems.BLUE_ICE_CUBE.get())
+                .unlockedBy("has_blue_ice_cube", has(ModItems.BLUE_ICE_CUBE)).save(output);
 
     }
     protected void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

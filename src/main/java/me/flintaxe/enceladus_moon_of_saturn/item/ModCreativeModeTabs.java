@@ -1,6 +1,7 @@
 package me.flintaxe.enceladus_moon_of_saturn.item;
 
 import me.flintaxe.enceladus_moon_of_saturn.EnceladusMoonOfSaturn;
+import me.flintaxe.enceladus_moon_of_saturn.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -17,6 +18,7 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ICE_CUBE.get()))
                     .title(Component.translatable("creativetab.enceladus_moon_of_saturn.title"))
                     .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModBlocks.DARK_BLUE_ICE);
                         output.accept(ModItems.ICE_CUBE);
                         output.accept(ModItems.BLUE_ICE_CUBE);
                         output.accept(ModItems.DARK_BLUE_ICE_CUBE);
