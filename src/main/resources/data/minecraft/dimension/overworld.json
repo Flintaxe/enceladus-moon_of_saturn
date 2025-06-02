@@ -1,0 +1,11 @@
+{
+  "type": "enceladus_moon_of_saturn:enceladus",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "enceladus_moon_of_saturn:enceladus",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "enceladus_moon_of_saturn:enceladus_plains"
+    }
+  }
+}
